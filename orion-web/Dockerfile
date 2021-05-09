@@ -5,11 +5,10 @@ ARG sha
 ARG mapbox_api_token
 
 RUN apk update
-RUN apk add curl unzip
+RUN apk add curl unzip git
 
-RUN curl -L -o orion-web.zip https://github.com/LINKIWI/orion-web/archive/$sha.zip
-RUN unzip orion-web.zip
-WORKDIR "orion-web-$sha"
+RUN git clone https://github.com/aloknnikhil/orion-web.git
+WORKDIR orion-web
 
 RUN npm install
 RUN npm install -g node-static

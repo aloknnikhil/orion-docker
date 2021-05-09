@@ -5,8 +5,10 @@ services:
   db:
     image: mysql:5.7
     restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=orion
+      - MYSQL_ROOT_PASSWORD=Ry26oNzEF4d7Mx
       - MYSQL_DATABASE=orion
 
   server:
@@ -19,7 +21,7 @@ services:
         database_port: 3306
         database_name: orion
         database_user: root
-        database_password: orion
+        database_password: Ry26oNzEF4d7Mx
     depends_on:
       - db
 
